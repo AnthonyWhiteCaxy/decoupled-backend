@@ -1,3 +1,23 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_security_login:
+    pattern:  /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+fos_user_security_check:
+    pattern:  /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    pattern:  /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+satellizer_auth_provider:
+    path: /oauth/v2/auth/fos
+    defaults:
+        _controller: AppBundle:Auth:provider

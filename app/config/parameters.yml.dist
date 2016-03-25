@@ -4,11 +4,14 @@
 parameters:
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     symfony
+    database_name:     decoupled_backend
     database_user:     root
     database_password: ~
-    # You should uncomment this if you want use pdo_sqlite
-    # database_path: "%kernel.root_dir%/data.db3"
+
+    jwt_private_key_path: %kernel.root_dir%/var/jwt/private.pem
+    jwt_public_key_path:  %kernel.root_dir%/var/jwt/public.pem
+    jwt_key_pass_phrase:  ''
+    jwt_token_ttl:        86400
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
