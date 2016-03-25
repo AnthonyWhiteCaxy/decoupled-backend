@@ -36,6 +36,23 @@ $ app/console doctrine:database:create
 $ app/console doctrine:schema:create
 ```
 
+####JWT Setup
+
+Generate the SSH keys for jwt (make sure to use the pass phrase in parameters.yml)
+
+```
+$ mkdir -p app/var/jwt
+$ openssl genrsa -out app/var/jwt/private.pem -aes256 4096
+$ openssl rsa -pubout -in app/var/jwt/private.pem -out app/var/jwt/public.pem
+```
+
+####Create OAuth Client
+
+Run the command below to create an OAuth Client for your URL.  Use the public_id displayed as your client_id on the front end.
+
+```
+$ app/console caxy:oauth-server:client:create --redirect-uri='YOUR_URL' --grant-type='authorization_code'
+```
 
 ##Other Tasks
 
